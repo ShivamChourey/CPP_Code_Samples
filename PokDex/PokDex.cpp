@@ -1,10 +1,10 @@
-// <Shivam Chourey> 
-// PokDex.cpp : This file contains the 'main' function where you can enter the Pokemon name and type
-// to learn more about it.
+// PokDex.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
 
 #include <iostream>
 #include "include/Pokedex.h"
 
+using namespace std;
 using namespace PokeDex;
 
 // Generic Pokemon function
@@ -219,69 +219,98 @@ int main()
 {
     string Pokename;
     int Poketype;
-    cout << " Welcome to PokeDex!" << "\n Enter name and type of Pokemon to learn more about the Pokemon";
-    cout<<"\n Refer to the following list for type of Pokemon";
-    cout << "\n  Pokemon     Type \n   Grass        0  \n   Fire         1  \n   Water        2   \n   Electric     3 \n   Rock         4 \n   Poison       5 \n   Psychic      6  \n   Normal       7";
-    cout << "\n Name : "; cin >> Pokename;
-    cout << "\n Type : "; cin >> Poketype;
 
-    switch (Poketype)
+    bool loop = true;
+
+    cout << " Welcome to PokeDex!";
+
+    do
     {
-	case POKETYPE::ELECTRIC_POKEMON:
-	{
-		string attack = "Thunderbolt";
-		string defense = "Dodge";
-		ElectricPokemon electricPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
-		electricPokemon.printDetails();
-	}
-	break;
-    case POKETYPE::FIRE_POKEMON:
-    {
-        string attack = "FireBall";
-        string defense = "Steady";
-        FirePokemon firePokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
-        firePokemon.printDetails();
-    }
-    break;
-    case POKETYPE::GRASS_POKEMON:
-    {
-        string attack = "Tackle";
-        string defense = "Dodge";
-        GrassPokemon grassPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
-        grassPokemon.printDetails();
-    }
-    break;
-    case POKETYPE::WATER_POKEMON:
-    {
-        string attack = "Water Gun";
-        string defense = "Dodge";
-        WaterPokemon waterPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
-        waterPokemon.printDetails();
-    }
-    break;
-    case POKETYPE::POISON_POKEMON:
-    {
-        string attack = "Poison Gas";
-        string defense = "Dodge";
-        PoisonPokemon poisonPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
-        poisonPokemon.printDetails();
-    }
-    break;
-    case POKETYPE::ROCK_POKEMON:
-    {
-        string attack = "Earthquake";
-        string defense = "Endure";
-        RockPokemon rockPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
-        rockPokemon.printDetails();
-    }
-    break;
-    default:
-    {
-        string attack = "Tackle";
-        string defense = "Dodge";
-        NormalPokemon normalPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
-        normalPokemon.printDetails();
-    }
-    }
+        cout << "\n Enter name and type of Pokemon to learn more about the Pokemon";
+        cout << "\n Refer to the following list for type of Pokemon";
+        cout << "\n  Pokemon     Type \n   Grass        0  \n   Fire         1  \n   Water        2   \n   Electric     3 \n   Rock         4 \n   Poison       5 \n   Psychic      6  \n   Normal       7";
+        cout << "\n Name : "; cin >> Pokename;
+        cout << "\n Type : "; cin >> Poketype;
+
+        if (Poketype < 0 || Poketype > 7)
+        {
+            cout << "\n Incorrect type entered (must be from 0 to 7). \n Please refer to the type list and try again. \n Exiting.";
+            continue;
+        }
+
+        switch (Poketype)
+        {
+        case POKETYPE::ELECTRIC_POKEMON:
+        {
+            string attack = "Thunderbolt";
+            string defense = "Dodge";
+            ElectricPokemon electricPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
+            electricPokemon.printDetails();
+        }
+        break;
+        case POKETYPE::FIRE_POKEMON:
+        {
+            string attack = "FireBall";
+            string defense = "Steady";
+            FirePokemon firePokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
+            firePokemon.printDetails();
+        }
+        break;
+        case POKETYPE::GRASS_POKEMON:
+        {
+            string attack = "Tackle";
+            string defense = "Dodge";
+            GrassPokemon grassPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
+            grassPokemon.printDetails();
+        }
+        break;
+        case POKETYPE::WATER_POKEMON:
+        {
+            string attack = "Water Gun";
+            string defense = "Dodge";
+            WaterPokemon waterPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
+            waterPokemon.printDetails();
+        }
+        break;
+        case POKETYPE::POISON_POKEMON:
+        {
+            string attack = "Poison Gas";
+            string defense = "Dodge";
+            PoisonPokemon poisonPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
+            poisonPokemon.printDetails();
+        }
+        break;
+        case POKETYPE::ROCK_POKEMON:
+        {
+            string attack = "Earthquake";
+            string defense = "Endure";
+            RockPokemon rockPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
+            rockPokemon.printDetails();
+        }
+        break;
+        default:
+        {
+            string attack = "Tackle";
+            string defense = "Dodge";
+            NormalPokemon normalPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
+            normalPokemon.printDetails();
+        }
+        }
+
+        string input;
+        cout << "\n To try again: enter Y / y  \n To exit : enter N / n \n";
+        cin >> input;
+
+        if (!input.compare("Y") || !input.compare("y"))
+        {
+            loop = true;
+        }
+        else
+        {
+            loop = false;
+        }
+    } while (loop);
+
+    return 0;
 }
 
