@@ -113,6 +113,90 @@ namespace PokeDex
 		void printAttacks();
 		void printDefense();
 	};
+
+	class WaterPokemon :public Pokemon
+	{
+		string m_waterAttack;
+		string m_waterDefense;
+
+		vector<POKETYPE> m_vulnerability;
+		vector<POKETYPE> m_strongAgainst;
+
+	public:
+
+		WaterPokemon(string& name, POKETYPE type, string& attack, string& defense) :Pokemon(name, type), m_waterAttack(attack), m_waterDefense(defense)
+		{
+
+		}
+
+		void printStrongAgainst(void);
+		void printVulnerability(void);
+		void printAttacks();
+		void printDefense();
+	};
+
+	class PoisonPokemon :public Pokemon
+	{
+		string m_poisonAttack;
+		string m_poisonDefense;
+
+		vector<POKETYPE> m_vulnerability;
+		vector<POKETYPE> m_strongAgainst;
+
+	public:
+
+		PoisonPokemon(string& name, POKETYPE type, string& attack, string& defense) :Pokemon(name, type), m_poisonAttack(attack), m_poisonDefense(defense)
+		{
+
+		}
+
+		void printStrongAgainst(void);
+		void printVulnerability(void);
+		void printAttacks();
+		void printDefense();
+	};
+
+	class RockPokemon :public Pokemon
+	{
+		string m_rockAttack;
+		string m_rockDefense;
+
+		vector<POKETYPE> m_vulnerability;
+		vector<POKETYPE> m_strongAgainst;
+
+	public:
+
+		RockPokemon(string& name, POKETYPE type, string& attack, string& defense) :Pokemon(name, type), m_rockAttack(attack), m_rockDefense(defense)
+		{
+
+		}
+
+		void printStrongAgainst(void);
+		void printVulnerability(void);
+		void printAttacks();
+		void printDefense();
+	};
+
+	class NormalPokemon :public Pokemon
+	{
+		string m_normalAttack;
+		string m_normalDefense;
+
+		vector<POKETYPE> m_vulnerability;
+		vector<POKETYPE> m_strongAgainst;
+
+	public:
+
+		NormalPokemon(string& name, POKETYPE type, string& attack, string& defense) :Pokemon(name, type), m_normalAttack(attack), m_normalDefense(defense)
+		{
+
+		}
+
+		void printStrongAgainst(void);
+		void printVulnerability(void);
+		void printAttacks();
+		void printDefense();
+	};
 }
 
 

@@ -78,12 +78,12 @@ void GrassPokemon::printVulnerability()
     cout << "\n Vulnerable Against: Electric, Water, Fire";
 }
 
-void PokeDex::GrassPokemon::printAttacks()
+void GrassPokemon::printAttacks()
 {
     cout << " \n Main Attack: " << this->m_grassAttack;
 }
 
-void PokeDex::GrassPokemon::printDefense()
+void GrassPokemon::printDefense()
 {
     cout << "\n Main Defense: " << this->m_grassDefense;
 }
@@ -99,12 +99,12 @@ void FirePokemon::printVulnerability()
     cout << "\n Vulnerable Against: Water, Rock";
 }
 
-void PokeDex::FirePokemon::printAttacks()
+void FirePokemon::printAttacks()
 {
     cout << " \n Main Attack: " << this->m_fireAttack;
 }
 
-void PokeDex::FirePokemon::printDefense()
+void FirePokemon::printDefense()
 {
     cout << "\n Main Defense: " << this->m_fireDefense;
 }
@@ -130,13 +130,99 @@ void ElectricPokemon::printDefense()
     cout << "\n Main Defense: " << this->m_electricDefense;
 }
 
+// Water Pokemon functions
+void WaterPokemon::printStrongAgainst()
+{
+    cout << "\n Strong Against: Fire, Rock, Grass";
+}
+
+void WaterPokemon::printVulnerability()
+{
+    cout << "\n Vulnerable Against: Electric, Poison ";
+}
+
+void WaterPokemon::printAttacks()
+{
+    cout << " \n Main Attack: " << this->m_waterAttack;
+}
+
+void WaterPokemon::printDefense()
+{
+    cout << "\n Main Defense: " << this->m_waterDefense;
+}
+
+// Poison Pokemon functions
+void PoisonPokemon::printStrongAgainst()
+{
+    cout << "\n Strong Against: Normal, Grass";
+}
+
+void PoisonPokemon::printVulnerability()
+{
+    cout << "\n Vulnerable Against: Fire, Electric";
+}
+
+void PoisonPokemon::printAttacks()
+{
+    cout << " \n Main Attack: " << this->m_poisonAttack;
+}
+
+void PoisonPokemon::printDefense()
+{
+    cout << "\n Main Defense: " << this->m_poisonDefense;
+}
+
+// Rock Pokemon functions
+void RockPokemon::printStrongAgainst()
+{
+    cout << "\n Strong Against: Electric, Grass, Fire, Normal";
+}
+
+void RockPokemon::printVulnerability()
+{
+    cout << "\n Vulnerable Against: Water";
+}
+
+void RockPokemon::printAttacks()
+{
+    cout << " \n Main Attack: " << this->m_rockAttack;
+}
+
+void RockPokemon::printDefense()
+{
+    cout << "\n Main Defense: " << this->m_rockDefense;
+}
+
+// Normal Pokemon functions
+void NormalPokemon::printStrongAgainst()
+{
+    cout << "\n Strong Against: None";
+}
+
+void NormalPokemon::printVulnerability()
+{
+    cout << "\n Vulnerable Against: Fire, Poison, Electric, Rock";
+}
+
+void NormalPokemon::printAttacks()
+{
+    cout << " \n Main Attack: " << this->m_normalAttack;
+}
+
+void NormalPokemon::printDefense()
+{
+    cout << "\n Main Defense: " << this->m_normalDefense;
+}
+
 int main()
 {
     string Pokename;
     int Poketype;
-    std::cout << " Welcome to PokeDex!\n"<<"\n Enter the Pokemon name and type: ";
-    cin >> Pokename;
-    cin >> Poketype;
+    cout << " Welcome to PokeDex!" << "\n Enter name and type of Pokemon to learn more about the Pokemon";
+    cout<<"\n Refer to the following list for type of Pokemon";
+    cout << "\n  Pokemon     Type \n   Grass        0  \n   Fire         1  \n   Water        2   \n   Electric     3 \n   Rock         4 \n   Poison       5 \n   Psychic      6  \n   Normal       7";
+    cout << "\n Name : "; cin >> Pokename;
+    cout << "\n Type : "; cin >> Poketype;
 
     switch (Poketype)
     {
@@ -166,22 +252,34 @@ int main()
     break;
     case POKETYPE::WATER_POKEMON:
     {
-
+        string attack = "Water Gun";
+        string defense = "Dodge";
+        WaterPokemon waterPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
+        waterPokemon.printDetails();
     }
     break;
     case POKETYPE::POISON_POKEMON:
     {
-
+        string attack = "Poison Gas";
+        string defense = "Dodge";
+        PoisonPokemon poisonPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
+        poisonPokemon.printDetails();
     }
     break;
     case POKETYPE::ROCK_POKEMON:
     {
-
+        string attack = "Earthquake";
+        string defense = "Endure";
+        RockPokemon rockPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
+        rockPokemon.printDetails();
     }
     break;
     default:
     {
-
+        string attack = "Tackle";
+        string defense = "Dodge";
+        NormalPokemon normalPokemon(Pokename, static_cast <POKETYPE> (Poketype), attack, defense);
+        normalPokemon.printDetails();
     }
     }
 }
