@@ -222,7 +222,7 @@ int main()
 
     bool loop = true;
 
-    cout << " Welcome to PokeDex!";
+    cout << " WELCOME TO THE PokeDex. \n \n Here you can learn more about your favourite pokemon by entering it's name and type. \n Let's explore ---- \n \n";
 
     do
     {
@@ -307,6 +307,7 @@ int main()
         }
         else
         {
+            cout << " \n Exiting. Goodbye from PokeDex!!  \n \n \n";
             loop = false;
         }
     } while (loop);
