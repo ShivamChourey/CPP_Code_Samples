@@ -1,5 +1,6 @@
-// PokDex.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// <Shivam Chourey> 
+// PokDex.cpp : This file contains the 'main' function where you can enter the Pokemon name and type
+// to learn more about it.
 
 #include <iostream>
 #include "include/Pokedex.h"
